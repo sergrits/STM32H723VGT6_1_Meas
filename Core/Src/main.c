@@ -824,10 +824,10 @@ static void MX_FDCAN1_Init(void)
   hfdcan1.Init.AutoRetransmission = ENABLE;
   hfdcan1.Init.TransmitPause = DISABLE;
   hfdcan1.Init.ProtocolException = DISABLE;
-  hfdcan1.Init.NominalPrescaler = 10;
+  hfdcan1.Init.NominalPrescaler = 12;
   hfdcan1.Init.NominalSyncJumpWidth = 4;
-  hfdcan1.Init.NominalTimeSeg1 = 11;
-  hfdcan1.Init.NominalTimeSeg2 = 3;
+  hfdcan1.Init.NominalTimeSeg1 = 15;
+  hfdcan1.Init.NominalTimeSeg2 = 4;
   hfdcan1.Init.DataPrescaler = 1;
   hfdcan1.Init.DataSyncJumpWidth = 1;
   hfdcan1.Init.DataTimeSeg1 = 1;
@@ -930,9 +930,8 @@ static void MX_SDMMC1_SD_Init(void)
   hsd1.Init.ClockDiv = 5;
   if (HAL_SD_Init(&hsd1) != HAL_OK)
   {
-      /* Non-fatal: SD_Logger handles retry logic */
+    Error_Handler();
   }
-
   /* USER CODE BEGIN SDMMC1_Init 2 */
 
   /* USER CODE END SDMMC1_Init 2 */
